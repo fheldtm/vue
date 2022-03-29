@@ -1,6 +1,6 @@
 <template>
   <form class="input-container" @submit.prevent="submitTodo">
-    <input type="text" class="input" v-model="todo" ref="input">
+    <input type="text" class="input" v-model="todo" ref="input" placeholder="할 일이 있나요?">
     <div class="btn">
       <input type="submit" value=" ">
     </div>
