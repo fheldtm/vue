@@ -14,7 +14,7 @@
 <script>
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export default {
   name: 'App',
@@ -28,11 +28,19 @@ export default {
     const addTodo = (todo) => {
       todos.value.push({ idx: todoCount, todo: todo })
       todoCount++
+      localStorage.setItem('todo-items', JSON.stringify(todos.value));
     }
 
     const removeTodo = (idx) => {
       todos.value = todos.value.filter(todo => todo.idx !== idx)
+      localStorage.setItem('todo-items', JSON.stringify(todos.value));
     }
+
+    onMounted(() => {
+      const local = JSON.parse(localStorage.getItem('todo-items'))
+      console.log(local)
+      todos.value = local == null ? [] : local;
+    })
 
     return {
       todos, addTodo, removeTodo
