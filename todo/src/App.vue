@@ -38,7 +38,6 @@ export default {
 
     onMounted(() => {
       const local = JSON.parse(localStorage.getItem('todo-items'))
-      console.log(local)
       todos.value = local == null ? [] : local;
     })
 
