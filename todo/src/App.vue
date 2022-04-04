@@ -59,5 +59,5 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
 </style>
 
 <style scoped>
-.main-root { width: 100%; height: 100%; padding: 20px; background: #eee; }
+.main-root { width: 100%; min-height: 100%; padding: 20px; background: #eee; }
 </style>
